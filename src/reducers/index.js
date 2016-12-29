@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import GifsReducer from './gifs';
 import { reducer as FormReducer } from 'redux-form';
+import AuthReducer from './auth';
 
 const rootReducer = combineReducers({
   form: FormReducer,
-  gifs: GifsReducer
+  auth: AuthReducer
 });
 
 export default rootReducer;
