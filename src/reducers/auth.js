@@ -20,11 +20,14 @@ export default function gifs(state = initialState, action) {
         authenticated: false,
         error: null
       };
+
     case AUTH_ERROR:
+    console.log("auth error reducer has been hit ", action.payload.message)
       return {
         ...state,
         error: action.payload.message
       };
+
     default:
       return state;
   }
