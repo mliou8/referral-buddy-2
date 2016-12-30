@@ -9,6 +9,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
+        This is the home component.
       </div>
     );
   }
@@ -16,6 +17,7 @@ class Home extends React.Component {
 
 function mapStateToProps(state) {
   return {
+    authenticated: state.auth.authenticated
   };
 }
 

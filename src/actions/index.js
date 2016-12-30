@@ -47,6 +47,7 @@ export function signInUser(credentials) {
 }
 
 export function signOutUser() {
+  Firebase.auth().signOut();
   browserHistory.push('/');
 
   return {

@@ -11,9 +11,15 @@ class Header extends React.Component {
     if (this.props.authenticated){
       return [
         <li className="nav-item" key={1}>
-          <Link className="nav-link" to="/myStuff"> My Stuff </Link>
+          <Link className="nav-link" to="/dashboard"> Dashboard </Link>
         </li>,
         <li className="nav-item" key={2}>
+          <Link className="nav-link" to="/jobs"> Jobs </Link>
+        </li>,
+        <li className="nav-item" key={3}>
+          <Link className="nav-link" to="/myStuff"> My Stuff </Link>
+        </li>,
+        <li className="nav-item" key={4}>
           <a className="nav-link" href="#" onClick={() => this.handleSignOut()}>Sign Out</a>
         </li>
       ]
