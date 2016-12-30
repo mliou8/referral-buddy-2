@@ -2,14 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
+import JobList from '../components/JobList'
 import '../styles/App.css';
-
+import JobData from '../joblist'
 
 class Home extends React.Component {
+
   render() {
     return (
       <div>
-        This is the home component.
+        <JobList
+          jobs={JobData}
+        />
       </div>
     );
   }

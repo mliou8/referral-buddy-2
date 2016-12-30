@@ -9,7 +9,7 @@ import SignUp from './containers/Signup';
 import Login from './containers/Login';
 import RequireAuth from './containers/RequireAuth';
 import Dashboard from './components/Dashboard';
-import JobsList from './components/JobsList';
+import Job from './components/Job';
 import MyStuff from './components/MyStuff';
 import configureStore from './store/configureStore';
 
@@ -23,7 +23,7 @@ ReactDOM.render(
       <Route path="signup" component={SignUp}/>
       <Route path="dashboard" component={Dashboard}/>
       <Route path="login" component={Login}/>
-      <Route path="jobs" component={JobsList}/>
+      <Route path="job" component={Job}/>
       <Route path="myStuff" component={RequireAuth(MyStuff)}/>
     </Route>
   </Router>

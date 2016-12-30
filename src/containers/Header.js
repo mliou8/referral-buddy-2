@@ -14,7 +14,7 @@ class Header extends React.Component {
           <Link className="nav-link" to="/dashboard"> Dashboard </Link>
         </li>,
         <li className="nav-item" key={2}>
-          <Link className="nav-link" to="/jobs"> Jobs </Link>
+          <Link className="nav-link" to="/job"> Job </Link>
         </li>,
         <li className="nav-item" key={3}>
           <Link className="nav-link" to="/myStuff"> My Stuff </Link>
