@@ -19,13 +19,16 @@ const validate = values => {
   if (values.password !== values.passwordConfirmation ) {
     errors.password = 'Passwords do not match';
   }
+  if (values.preferredJob === "") {
+    errors.preferredJob = "Please enter a preference.";
+  }
 
   return errors;
 }
 
 class Signup extends React.Component {
   handleFormSubmit = (values) => {
-    this.props.signInUser(values);
+    this.props.signUpUser(values);
   };
 
   renderField = ({ input, label, type, meta: { touched, error } }) => (
@@ -38,16 +41,29 @@ class Signup extends React.Component {
     </fieldset>
   );
 
+  renderAuthenticationError() {
+    if (this.props.authenticationError) {
+      return <div className="alert alert-danger"> { this.props.authenticationError } </div>;
+    }
+      return <div></div>;
+  }
+
   render() {
     return (
       <div className="container">
         <div className="col-md-6 col-md-offset-3">
           <h2 className="text-center">Sign Up</h2>
+            { this.renderAuthenticationError() }
           <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
             <Field name="email" type="text" component={this.renderField} label="Email" />
             <Field name="password" type="password" component={this.renderField} label="Password" />
             <Field name="passwordConfirmation" type="password" component={this.renderField} label="Password Confirmation" />
-
+            <Field name="preferredJob" component="select" label="preferredJob" >
+              <option value="">Select an Option</option>
+              <option value="frontend">Front End</option>
+              <option value="backend">Back End</option>
+              <option value="data">Data</option>
+            </Field>
             <button action="submit" className="btn btn-primary">Sign up</button>
           </form>
         </div>
@@ -56,7 +72,12 @@ class Signup extends React.Component {
   }
 }
 
-export default connect(null, Actions)(reduxForm({
+function mapStateToProps(state) {
+  return {
+    authenticationError: state.auth.error
+  }
+}
+export default connect(mapStateToProps, Actions)(reduxForm({
   form: 'signup',
   validate
 })(Signup));

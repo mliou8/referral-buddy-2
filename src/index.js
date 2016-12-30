@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 
-import App from './App';
+import App from './components/App';
 import Home from './containers/Home';
 import SignUp from './containers/Signup';
 import Login from './containers/Login';
