@@ -3,8 +3,9 @@ import Firebase from 'firebase';
 
 export const SIGN_IN_USER = 'SIGN_IN_USER';
 export const SIGN_OUT_USER = 'SIGN_OUT_USER';
-export const AUTH_USER = 'AUTH_USER';
 export const AUTH_ERROR = 'AUTH_ERROR';
+export const AUTH_USER = 'AUTH_USER';
+
 
 const config = {
   apiKey: "AIzaSyDO6D8JHajOU4Inp9ZKWgDuaohdm2PTiI4",
@@ -26,7 +27,7 @@ export function signUpUser(credentials) {
         browserHistory.push('/myStuff');
       })
       .catch(error => {
-        console.log(error);
+        console.log("this is the error isn't it", error);
         dispatch(authError(error));
       });
   }
@@ -75,7 +76,7 @@ export function authUser() {
 
 export function authError(error) {
   return {
-    auth: AUTH_ERROR,
+    type: AUTH_ERROR,
     payload: error
   }
 }
