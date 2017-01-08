@@ -4,22 +4,37 @@ class Job extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = { favorited: this.props.isFavorite };
+    
+  }
+  
+  favoriteJob() {
+    this.setState({ favorited: true });
+    this.props.onFavoriteSelect(this.props.job);
+  }
 
-    this.state = {
-      checked: this.props.isChecked
+  unfavoriteJob() {
+    this.setState({ favorited: false });
+    this.props.onFavoriteDeselect(this.props.job);
+  }
+  
+  renderFavoriteJob() {
+    if (!this.props.isAuthenticated) {
+      return 'not authenticated';
     }
-  }
-  toggleChecked() {
-    this.setState({checked: true});
-  }
-
-
+    if (this.state.favorited) {
+      return <input type="checkbox" checked="checked" onClick={() => this.unfavoriteJob()} />;
+    }
+    return <input type="checkbox" onClick={() => this.favoriteJob()} />;
+  };
+  
   render() {
     return (
       <div>
       This is one job amongst many.
         <ul>
-          <li> {this.props.text} </li>
+          <li> {this.props.text} </li> 
+          <li>{this.renderFavoriteJob()}</li>  
         </ul>
       </div>
     );

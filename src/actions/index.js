@@ -60,6 +60,7 @@ export function verifyAuth() {
   return function (dispatch) {
     Firebase.auth().onAuthStateChanged(user => {
       if (user) {
+        console.log("user authenticated")
         dispatch(authUser());
       } else {
         dispatch(signOutUser());
