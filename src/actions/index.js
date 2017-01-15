@@ -4,7 +4,7 @@ import Firebase from 'firebase';
 export const SIGN_OUT_USER = 'SIGN_OUT_USER';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_USER = 'AUTH_USER';
-
+export const FETCH_FAVORITED_JOBS = 'FETCH_FAVORITED_JOBS';
 
 const config = {
   apiKey: "AIzaSyDO6D8JHajOU4Inp9ZKWgDuaohdm2PTiI4",
@@ -82,6 +82,19 @@ export function unfavoriteJob({selectedJob}) {
   const jobId = selectedJob.id;
   
   return dispatch => Firebase.database().ref(userUid).child(jobId).remove();
+}
+
+export function fetchFavoritedJobs() {
+  return function(dispatch) {
+    const userUid = Firebase.auth().currentUser.uid;
+    
+    Firebase.database().ref(userUid).on('value', snapshot => {
+      dispatch({
+        type: FETCH_FAVORITED_JOBS,
+        payload: snapshot.val()
+      })
+    });
+  }
 }
 
 export function authUser() {
