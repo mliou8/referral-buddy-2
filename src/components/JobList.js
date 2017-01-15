@@ -6,7 +6,7 @@ const JobList = (props) => {
   const jobList = props.jobs.map((job) => {
     return <Job
               key={job.id}
-              text={job.text}
+              job={job}
               isAuthenticated={props.isAuthenticated}
               isFavorite={props.isFavorite} 
               onFavoriteSelect={props.onFavoriteSelect}

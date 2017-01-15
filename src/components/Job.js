@@ -32,7 +32,7 @@ class Job extends React.Component {
       <div>
         This is a job listing!
         <ul>
-          <li onClick={()=> this.props.onJobSelect(this.props.job)}> {this.props.text} </li> 
+          <li onClick={()=> this.props.onJobSelect(this.props.job)}> {this.props.job.text} </li> 
           <li>{this.renderFavoriteJob()}</li>  
         </ul>
       </div>

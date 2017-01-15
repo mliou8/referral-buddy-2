@@ -4,7 +4,8 @@ import Firebase from 'firebase';
 export const SIGN_OUT_USER = 'SIGN_OUT_USER';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_USER = 'AUTH_USER';
-export const SELECT_JOB = 'SELECT_JOB';
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const FETCH_FAVORITED_JOBS = 'FETCH_FAVORITED_JOBS';
 
 const config = {
@@ -111,9 +112,16 @@ export function authError(error) {
   }
 }
 
-export function selectJob(job) {
+export function openModal(job) {
   return {
-    type: SELECT_JOB,
+    type: OPEN_MODAL,
     job
   }
 }
+
+export function closeModal() {
+  return {
+    type: CLOSE_MODAL
+  }
+}
+

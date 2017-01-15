@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
 import JobList from '../components/JobList'
-import '../styles/App.css';
+import JobModal from '../components/JobModal'
 import JobData from '../joblist'
+import '../styles/App.css';
 
 class Home extends React.Component {
   render() {
@@ -12,11 +13,16 @@ class Home extends React.Component {
       <div>
         <JobList
           jobs={JobData}
-          isAuthenticated={this.props.authenticated}
+          onJobSelect={ selectedJob => this.props.action.openModal({selectedJob})}
           onFavoriteSelect={ selectedJob => this.props.actions.favoriteJob({selectedJob}) }
           onFavoriteDeselect={ selectedJob => this.props.actions.unfavoriteJob({selectedJob}) }
-          onJobSelect={ selectedJob => this.props.action.selectJob({selectedJob})}
-           />    
+          isAuthenticated={this.props.authenticated}
+           />
+         <JobModal 
+           modalIsOpen={ this.props.modalIsOpen }
+           selectedJob={ this.props.selectedJob }
+           onRequestClose={ () => this.props.actions.closeModal() } />
+           
       </div>
     );
   }
@@ -24,7 +30,9 @@ class Home extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
+    selectedJob: state.modal.selectedJob,
+    modalIsOpen: state.modal.ModalIsOpen
   };
 }
 

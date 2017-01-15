@@ -9,7 +9,6 @@ import SignUp from './containers/Signup';
 import Login from './containers/Login';
 import RequireAuth from './containers/RequireAuth';
 import Dashboard from './components/Dashboard';
-import Job from './components/Job';
 import MyStuff from './containers/MyStuff';
 import configureStore from './store/configureStore';
 

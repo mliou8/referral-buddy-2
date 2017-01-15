@@ -1,9 +1,8 @@
-import { FETCH_FAVORITED_JOBS, SELECT_JOB } from '../actions';
+import { FETCH_FAVORITED_JOBS } from '../actions';
 
 const initialState =  {
   data: [],
   favorites: [],
-  selectedJob: null,
 };
 
 export default function jobs(state = initialState, action) {
@@ -18,12 +17,6 @@ export default function jobs(state = initialState, action) {
       return {
         ...state, favorites: arr
       };
-    case SELECT_JOB:
-      return {
-        ...state,
-        selectedJob: action.job.selectedJob
-      }
-      
     default:
       return state;
   }
