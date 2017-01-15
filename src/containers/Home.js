@@ -5,7 +5,7 @@ import * as Actions from '../actions';
 import JobList from '../components/JobList'
 import JobModal from '../components/JobModal'
 import JobData from '../joblist'
-import '../styles/App.css';
+import '../styles/app.css';
 
 class Home extends React.Component {
   render() {

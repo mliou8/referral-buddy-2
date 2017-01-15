@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
 import JobList from '../components/JobList';
-
+import '../styles/app.css';
 
 class MyStuff extends React.Component {
   componentWillMount() {

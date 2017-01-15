@@ -16,7 +16,7 @@ const JobList = (props) => {
   });
 
   return (
-    <div>{jobList}</div>
+    <div className="job-list">{jobList}</div>
   );
 };
 

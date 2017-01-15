@@ -22,10 +22,11 @@ class Job extends React.Component {
       return 'not authenticated';
     }
     if (this.state.favorited) {
-      return <input type="checkbox" checked="checked" onClick={() => this.unfavoriteJob()} />;
+      return <i className="favorite fa fa-heart" onClick={() => this.unfavoriteJob()} />;
     }
-    return <input type="checkbox" onClick={() => this.favoriteJob()} />;
-  };
+
+    return <i className="favorite fa fa-heart-o" onClick={() => this.favoriteJob()} />;
+  }
   
   render() {
     return (
