@@ -23,7 +23,6 @@ ReactDOM.render(
       <Route path="signup" component={SignUp}/>
       <Route path="dashboard" component={Dashboard}/>
       <Route path="login" component={Login}/>
-      <Route path="job" component={Job}/>
       <Route path="myStuff" component={RequireAuth(MyStuff)}/>
     </Route>
   </Router>

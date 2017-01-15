@@ -4,6 +4,7 @@ import Firebase from 'firebase';
 export const SIGN_OUT_USER = 'SIGN_OUT_USER';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_USER = 'AUTH_USER';
+export const SELECT_JOB = 'SELECT_JOB';
 export const FETCH_FAVORITED_JOBS = 'FETCH_FAVORITED_JOBS';
 
 const config = {
@@ -107,5 +108,12 @@ export function authError(error) {
   return {
     type: AUTH_ERROR,
     payload: error
+  }
+}
+
+export function selectJob(job) {
+  return {
+    type: SELECT_JOB,
+    job
   }
 }

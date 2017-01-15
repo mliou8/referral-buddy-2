@@ -8,7 +8,11 @@ const JobList = (props) => {
               key={job.id}
               text={job.text}
               isAuthenticated={props.isAuthenticated}
-              isFavorite={props.isFavorite} />
+              isFavorite={props.isFavorite} 
+              onFavoriteSelect={props.onFavoriteSelect}
+              onFavoriteDeselect={props.onFavoriteDeselect}
+              onJobSelect={props.onJobSelect}
+              />
   });
 
   return (

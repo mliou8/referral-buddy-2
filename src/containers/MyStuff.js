@@ -14,7 +14,7 @@ class MyStuff extends React.Component {
     return (
       <div>
         <JobList gifs={ this.props.gifs }
-                 onFavoriteSelect={ selectedGif => this.props.actions.favoriteGif({selectedGif}) }
+                 onFavoriteSelect={ selectedJob => this.props.actions.favoriteGif({selectedJob}) }
                  onFavoriteDeselect={ selectedGif => this.props.actions.unfavoriteGif({selectedGif}) }
                  isAuthenticated={ this.props.authenticated }
                  isFavorite={true} />

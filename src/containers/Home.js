@@ -12,7 +12,11 @@ class Home extends React.Component {
       <div>
         <JobList
           jobs={JobData}
-          isAuthenticated={this.props.authenticated} />    
+          isAuthenticated={this.props.authenticated}
+          onFavoriteSelect={ selectedJob => this.props.actions.favoriteJob({selectedJob}) }
+          onFavoriteDeselect={ selectedJob => this.props.actions.unfavoriteJob({selectedJob}) }
+          onJobSelect={ selectedJob => this.props.action.selectJob({selectedJob})}
+           />    
       </div>
     );
   }

@@ -18,6 +18,14 @@
   font-size: large;
 }
 
+.job-selected-true {
+  color: "red";
+}
+
+.job-selected-false {
+  color: "black";
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

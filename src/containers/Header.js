@@ -14,12 +14,9 @@ class Header extends React.Component {
           <Link className="nav-link" to="/dashboard"> Dashboard </Link>
         </li>,
         <li className="nav-item" key={2}>
-          <Link className="nav-link" to="/job"> Job </Link>
-        </li>,
-        <li className="nav-item" key={3}>
           <Link className="nav-link" to="/myStuff"> My Stuff </Link>
         </li>,
-        <li className="nav-item" key={4}>
+        <li className="nav-item" key={3}>
           <a className="nav-link" href="#" onClick={() => this.handleSignOut()}>Sign Out</a>
         </li>
       ]

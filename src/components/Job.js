@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react'
-
 class Job extends React.Component {
 
   constructor(props) {
@@ -17,7 +16,7 @@ class Job extends React.Component {
     this.setState({ favorited: false });
     this.props.onFavoriteDeselect(this.props.job);
   }
-  
+    
   renderFavoriteJob() {
     if (!this.props.isAuthenticated) {
       return 'not authenticated';
@@ -31,10 +30,9 @@ class Job extends React.Component {
   render() {
     return (
       <div>
-      This is one job amongst many.wee
-      <input type="checkbox" onClick={() => this.favoriteJob()}/>
+        This is a job listing!
         <ul>
-          <li> {this.props.text} </li> 
+          <li onClick={()=> this.props.onJobSelect(this.props.job)}> {this.props.text} </li> 
           <li>{this.renderFavoriteJob()}</li>  
         </ul>
       </div>
