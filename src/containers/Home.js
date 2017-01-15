@@ -7,17 +7,12 @@ import '../styles/App.css';
 import JobData from '../joblist'
 
 class Home extends React.Component {
-
   render() {
     return (
       <div>
         <JobList
           jobs={JobData}
-          onGifSelect={ selectedJob => this.props.actions.openModal({selectedJob}) }
-          onFavoriteSelect={ selectedJob => this.props.actions.favoriteGif({selectedJob}) }
-          onFavoriteDeselect={ selectedJob => this.props.actions.unfavoriteGif({selectedJob}) }
-          isAuthenticated={ this.props.authenticated } />
-        />
+          isAuthenticated={this.props.authenticated} />    
       </div>
     );
   }

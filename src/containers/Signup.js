@@ -1,6 +1,6 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
+import {Field, reduxForm} from 'redux-form';
+import {connect} from 'react-redux';
 import * as Actions from '../actions';
 
 const validate = values => {
@@ -16,7 +16,7 @@ const validate = values => {
   if (!values.passwordConfirmation) {
     errors.passwordConfirmation = "Please enter a password confirmation.";
   }
-  if (values.password !== values.passwordConfirmation ) {
+  if (values.password !== values.passwordConfirmation) {
     errors.password = 'Passwords do not match';
   }
   if (values.preferredJob === "") {
@@ -31,21 +31,34 @@ class Signup extends React.Component {
     this.props.signUpUser(values);
   };
 
-  renderField = ({ input, label, type, meta: { touched, error } }) => (
-    <fieldset className={`form-group ${touched && error ? 'has-error' : ''}`}>
+  renderField = ({
+    input,
+    label,
+    type,
+    meta: {
+      touched,
+      error
+    }
+  }) => (
+    <fieldset className={`form-group ${touched && error
+      ? 'has-error'
+      : ''}`}>
       <label className="control-label">{label}</label>
       <div>
-        <input {...input} placeholder={label} className="form-control" type={type} />
-        {touched && error && <div className="help-block"> {error }</div>}
+        <input {...input} placeholder={label} className="form-control" type={type}/>
+        {touched && error && <div className="help-block">
+          {error}</div>}
       </div>
     </fieldset>
   );
 
   renderAuthenticationError() {
     if (this.props.authenticationError) {
-      return <div className="alert alert-danger"> { this.props.authenticationError } </div>;
+      return <div className="alert alert-danger">
+        {this.props.authenticationError}
+      </div>;
     }
-      return <div></div>;
+    return <div></div>;
   }
 
   render() {
@@ -53,12 +66,12 @@ class Signup extends React.Component {
       <div className="container">
         <div className="col-md-6 col-md-offset-3">
           <h2 className="text-center">Sign Up</h2>
-            { this.renderAuthenticationError() }
+          {this.renderAuthenticationError()}
           <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
-            <Field name="email" type="text" component={this.renderField} label="Email" />
-            <Field name="password" type="password" component={this.renderField} label="Password" />
-            <Field name="passwordConfirmation" type="password" component={this.renderField} label="Password Confirmation" />
-            <Field name="preferredJob" component="select" label="preferredJob" >
+            <Field name="email" type="text" component={this.renderField} label="Email"/>
+            <Field name="password" type="password" component={this.renderField} label="Password"/>
+            <Field name="passwordConfirmation" type="password" component={this.renderField} label="Password Confirmation"/>
+            <Field name="preferredJob" component="select" label="preferredJob">
               <option value="">Select an Option</option>
               <option value="frontend">Front End</option>
               <option value="backend">Back End</option>
@@ -73,11 +86,6 @@ class Signup extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    authenticationError: state.auth.error
-  }
+  return {authenticationError: state.auth.error}
 }
-export default connect(mapStateToProps, Actions)(reduxForm({
-  form: 'signup',
-  validate
-})(Signup));
+export default connect(mapStateToProps, Actions)(reduxForm({form: 'signup', validate})(Signup));

@@ -31,7 +31,8 @@ class Job extends React.Component {
   render() {
     return (
       <div>
-      This is one job amongst many.
+      This is one job amongst many.wee
+      <input type="checkbox" onClick={() => this.favoriteJob()}/>
         <ul>
           <li> {this.props.text} </li> 
           <li>{this.renderFavoriteJob()}</li>  
