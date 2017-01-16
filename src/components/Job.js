@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react'
+import Heart from './HeartIcon.js'
 class Job extends React.Component {
 
   constructor(props) {
@@ -22,20 +23,16 @@ class Job extends React.Component {
       return 'not authenticated';
     }
     if (this.state.favorited) {
-      return <i className="favorite fa fa-heart" onClick={() => this.unfavoriteJob()} />;
+      return <Heart onClick={() => this.unfavoriteJob()}></Heart>
     }
-
-    return <i className="favorite fa fa-heart-o" onClick={() => this.favoriteJob()} />;
+    return <Heart onClick={() => this.favoriteJob()}></Heart>
   }
   
   render() {
     return (
-      <div>
-        This is a job listing!
-        <ul>
-          <li onClick={()=> this.props.onJobSelect(this.props.job)}> {this.props.job.text} </li> 
-          <li>{this.renderFavoriteJob()}</li>  
-        </ul>
+      <div className="job-item">
+          { this.renderFavoriteJob() }      
+          <img src="http://placehold.it/200x100" onClick={()=> this.props.onJobSelect(this.props.job)}></img>
       </div>
     );
   }

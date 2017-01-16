@@ -7,11 +7,11 @@ const JobList = (props) => {
     return <Job
               key={job.id}
               job={job}
+              onJobSelect={props.onJobSelect}
               isAuthenticated={props.isAuthenticated}
               isFavorite={props.isFavorite} 
               onFavoriteSelect={props.onFavoriteSelect}
-              onFavoriteDeselect={props.onFavoriteDeselect}
-              onJobSelect={props.onJobSelect}
+              onFavoriteDeselect={props.onFavoriteDeselect}              
               />
   });
 

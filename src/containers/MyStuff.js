@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
 import JobList from '../components/JobList';
 import '../styles/app.css';
+import JobData from '../joblist';
 
 class MyStuff extends React.Component {
   componentWillMount() {
@@ -13,11 +14,13 @@ class MyStuff extends React.Component {
   render() {
     return (
       <div>
-        <JobList gifs={ this.props.gifs }
-                 onFavoriteSelect={ selectedJob => this.props.actions.favoriteGif({selectedJob}) }
-                 onFavoriteDeselect={ selectedGif => this.props.actions.unfavoriteGif({selectedGif}) }
-                 isAuthenticated={ this.props.authenticated }
-                 isFavorite={true} />
+        <JobList
+          jobs={JobData}
+          onJobSelect={ selectedJob => this.props.actions.openModal({selectedJob})}
+          onFavoriteSelect={ selectedJob => this.props.actions.favoriteJob({selectedJob}) }
+          onFavoriteDeselect={ selectedJob => this.props.actions.unfavoriteJob({selectedJob}) }
+          isAuthenticated={this.props.authenticated}
+        />
       </div>
     );
   }

@@ -11,7 +11,7 @@ export default function modal(state = initialState, action) {
       return {
         ...state,
         modalIsOpen: true,
-        selectedJob: action.gif.selectedJob
+        selectedJob: action.job.selectedJob
       };
     case CLOSE_MODAL:
       return {

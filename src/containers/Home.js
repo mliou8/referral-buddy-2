@@ -13,7 +13,7 @@ class Home extends React.Component {
       <div>
         <JobList
           jobs={JobData}
-          onJobSelect={ selectedJob => this.props.action.openModal({selectedJob})}
+          onJobSelect={ selectedJob => this.props.actions.openModal({selectedJob})}
           onFavoriteSelect={ selectedJob => this.props.actions.favoriteJob({selectedJob}) }
           onFavoriteDeselect={ selectedJob => this.props.actions.unfavoriteJob({selectedJob}) }
           isAuthenticated={this.props.authenticated}
