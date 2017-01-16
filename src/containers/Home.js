@@ -32,7 +32,7 @@ function mapStateToProps(state) {
   return {
     authenticated: state.auth.authenticated,
     selectedJob: state.modal.selectedJob,
-    modalIsOpen: state.modal.ModalIsOpen
+    modalIsOpen: state.modal.modalIsOpen
   };
 }
 
